@@ -195,6 +195,7 @@ This keeps the routing easy to understand and explain.
 - Add environment variables:
   - `MONGODB_URL`
   - `JWT_SECRET`
+  - `GEMINI_API_KEY`
 
 ### Frontend on Vercel
 
