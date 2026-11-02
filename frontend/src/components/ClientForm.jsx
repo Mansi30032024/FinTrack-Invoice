@@ -5,10 +5,11 @@ function ClientForm({ clientData, setClientData, onSubmit }) {
   }
 
   return (
-    <section className="panel">
-      <div className="panel-heading">
-        <h2>Add Client</h2>
-      </div>
+    <details className="panel client-panel">
+      <summary className="client-summary">
+        <span><strong>Add a client</strong><small>Save their details for future invoices</small></span>
+        <span className="summary-action">Add client</span>
+      </summary>
 
       <form className="form client-form" onSubmit={onSubmit}>
         <label>
@@ -40,7 +41,7 @@ function ClientForm({ clientData, setClientData, onSubmit }) {
           Add Client
         </button>
       </form>
-    </section>
+    </details>
   )
 }
 

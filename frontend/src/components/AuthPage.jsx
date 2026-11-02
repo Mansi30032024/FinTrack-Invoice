@@ -44,11 +44,12 @@ function AuthPage({ onLogin }) {
     <main className="auth-page">
       <section className="auth-intro">
         <p className="eyebrow">Invoice Manager</p>
-        <h1>Track clients, create invoices, and monitor payments in one clean dashboard.</h1>
+        <h1>Get paid on time. Keep every invoice in view.</h1>
+        <p className="auth-intro-copy">A focused workspace for your clients, billing, and payment status.</p>
         <div className="auth-points">
-          <span>JWT Auth</span>
-          <span>Client CRM</span>
-          <span>Invoice Analytics</span>
+          <span>Client records</span>
+          <span>Clear payment tracking</span>
+          <span>Quick invoice creation</span>
         </div>
       </section>
 
@@ -68,7 +69,7 @@ function AuthPage({ onLogin }) {
         <form className="form" onSubmit={handleSubmit}>
           {!isLogin && (
             <label>
-              Name
+              Full name
               <input name="name" value={formData.name} onChange={handleChange} required />
             </label>
           )}
@@ -80,6 +81,7 @@ function AuthPage({ onLogin }) {
               name="email"
               value={formData.email}
               onChange={handleChange}
+              autoComplete="email"
               required
             />
           </label>
@@ -91,6 +93,7 @@ function AuthPage({ onLogin }) {
               name="password"
               value={formData.password}
               onChange={handleChange}
+              autoComplete={isLogin ? 'current-password' : 'new-password'}
               required
             />
           </label>

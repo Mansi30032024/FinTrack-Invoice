@@ -1,4 +1,11 @@
-function InvoiceTable({ invoices, clientsCount, onStatusChange, onPrint, onDelete }) {
+function InvoiceTable({
+  invoices,
+  clientsCount,
+  onStatusChange,
+  onPrint,
+  onDelete,
+  onEdit,
+}) {
   return (
     <section className="table-section">
       <div className="panel-heading">
@@ -28,7 +35,9 @@ function InvoiceTable({ invoices, clientsCount, onStatusChange, onPrint, onDelet
                   <select
                     className={`status ${invoice.status}`}
                     value={invoice.status}
-                    onChange={(event) => onStatusChange(invoice._id, event.target.value)}
+                    onChange={(event) =>
+                      onStatusChange(invoice._id, event.target.value)
+                    }
                   >
                     <option value="draft">draft</option>
                     <option value="sent">sent</option>
@@ -39,6 +48,7 @@ function InvoiceTable({ invoices, clientsCount, onStatusChange, onPrint, onDelet
                 <td>Rs {invoice.taxAmount}</td>
                 <td>Rs {invoice.totalAmount}</td>
                 <td className="actions">
+                  <button onClick={() => onEdit(invoice)}>Edit</button>
                   <button onClick={() => onPrint(invoice)}>Print</button>
                   <button onClick={() => onDelete(invoice._id)}>Delete</button>
                 </td>
@@ -56,7 +66,7 @@ function InvoiceTable({ invoices, clientsCount, onStatusChange, onPrint, onDelet
         </table>
       </div>
     </section>
-  )
+  );
 }
 
-export default InvoiceTable
+export default InvoiceTable;
